@@ -12,7 +12,7 @@ from .models import Program
 class ProgramView(PaginationMixin, ListView):
     object = Program
     model = Program
-    paginate_by = 30
+    paginate_by = 10
     context_object_name = 'programs'
 
     def get_queryset(self):
