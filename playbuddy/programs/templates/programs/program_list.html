@@ -1,53 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="ui main container">
-  <h1>Banana</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet ipsum bibendum lacus posuere mattis non et augue.</p>
-  <table class="ui celled table">
-  <thead>
-    <tr>
-      <th>Program</th>
-      <th>Channel</th>
-      <th>Date</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for program in programs %}
-    <tr>
-        <td data-label="Program">{{ program.movie_name }}</td>
-        <td data-label="Channel">{{ program.channel_name }}</td>
-        <td data-label="Date">{{ program.date }}</td>
-        <td data-label="Start Time">{{ program.start_time }}</td>
-        <td data-label="End Time">{{ program.end_time }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <div class="ui main container">
+        <h1>Banana</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet ipsum bibendum lacus posuere mattis non et augue.</p>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Program</th>
+                    <th>Channel</th>
+                    <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for program in programs %}
+                    <tr>
+                        <td data-label="Program">{{ program.movie_name }}</td>
+                        <td data-label="Channel">{{ program.channel_name }}</td>
+                        <td data-label="Date">{{ program.date }}</td>
+                        <td data-label="Start Time">{{ program.start_time }}</td>
+                        <td data-label="End Time">{{ program.end_time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-{% if is_paginated %}
-<div class="ui basic buttons">
-    {% if page_obj.has_previous %}
-        <a class="ui button" href='?page={{ page_obj.previous_page_number }}'>&laquo;</a>
-    {% else %}
-        <a class="ui button disabled" href='#'>&laquo;</a>
+    {% if is_paginated %}
+        <div class="ui basic buttons">
+            {% if page_obj.has_previous %}
+                <a class="ui button" href='?page={{ page_obj.previous_page_number }}'>&laquo;</a>
+            {% else %}
+                <a class="ui button disabled" href='#'>&laquo;</a>
+            {% endif %}
+            {% for page_number in paginator.page_range %}
+                {% if page_obj.number == page_number %}
+                    <a class="ui active button" href='?page={{ page_number }}'>{{ page_number }}</a>
+                {% else %}
+                    <a class="ui button" href='?page={{ page_number }}'>{{ page_number }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a class="ui button" href='?page={{ page_obj.next_page_number }}'>&raquo;</a>
+            {% else %}
+                <a class="ui button disabled" href='#'>&raquo;</a>
+            {% endif %}
+        </div>
     {% endif %}
-    {% for page_number in paginator.page_range %}
-        {% if page_obj.number == page_number %}
-            <a class="ui active button" href='?page={{ page_number }}'>{{ page_number }}</a>
-        {% else %}
-            <a class="ui button" href='?page={{ page_number }}'>{{ page_number }}</a>
-        {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-        <a class="ui button" href='?page={{ page_obj.next_page_number }}'>&raquo;</a>
-    {% else %}
-        <a class="ui button disabled" href='#'>&raquo;</a>
-    {% endif %}
-</div>
-{% endif %}
 
 </div>
 {% endblock %}
