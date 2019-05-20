@@ -4,10 +4,12 @@
     <div class="ui main container">
         <h1>Programs</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet ipsum bibendum lacus posuere mattis non et augue.</p>
-        <div class="ui fluid action input">
-            <input type="text" placeholder="Search...">
-            <div class="ui primary button">Search</div>
-        </div>
+        <form id='searchform' action='/' method='get'>
+            <div class="ui fluid action input">
+                <input type="text" name='name' placeholder="Search..." value="{{ request.GET.name }}">
+                <button type='submit' class="ui primary button">Search</button>
+            </div>
+        </form>
         <table class="ui celled table">
             <thead>
                 <tr>
