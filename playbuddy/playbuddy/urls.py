@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from programs.views import ProgramView
+
+
 urlpatterns = [
+    path('', ProgramView.as_view(), name='program-view'),
     path('admin/', admin.site.urls),
 ]
