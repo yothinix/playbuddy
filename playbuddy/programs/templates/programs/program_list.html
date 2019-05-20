@@ -2,8 +2,12 @@
 
 {% block content %}
     <div class="ui main container">
-        <h1>Banana</h1>
+        <h1>Programs</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet ipsum bibendum lacus posuere mattis non et augue.</p>
+        <div class="ui fluid action input">
+            <input type="text" placeholder="Search...">
+            <div class="ui primary button">Search</div>
+        </div>
         <table class="ui celled table">
             <thead>
                 <tr>
@@ -17,8 +21,8 @@
             <tbody>
                 {% for program in programs %}
                     <tr>
-                        <td data-label="Program">{{ program.movie_name }}</td>
-                        <td data-label="Channel">{{ program.channel_name }}</td>
+                        <td data-label="Program"><a href='/?name={{ program.movie_name }}'>{{ program.movie_name }}</a></td>
+                        <td data-label="Channel"><a href='/?channel={{ program.channel_name }}'>{{ program.channel_name }}</a></td>
                         <td data-label="Date">{{ program.date }}</td>
                         <td data-label="Start Time">{{ program.start_time }}</td>
                         <td data-label="End Time">{{ program.end_time }}</td>
@@ -49,5 +53,5 @@
         </div>
     {% endif %}
 
-</div>
+    </div>
 {% endblock %}
