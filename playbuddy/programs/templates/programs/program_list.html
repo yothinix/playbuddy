@@ -21,7 +21,11 @@
             <tbody>
                 {% for program in programs %}
                     <tr>
-                        <td data-label="Program"><a href='/?name={{ program.movie_name }}'>{{ program.movie_name }}</a></td>
+                        <td data-label="Program">
+                            <a href='/?name={{ program.movie_name }}'>{{ program.movie_name }}</a>
+                            {% if program.now_showing %}
+                                <span class="ui mini red tag label">now showing</span></td>
+                            {% endif %}
                         <td data-label="Channel"><a href='/?channel={{ program.channel_name }}'>{{ program.channel_name }}</a></td>
                         <td data-label="Date">{{ program.date }}</td>
                         <td data-label="Start Time">{{ program.start_time }}</td>
