@@ -3,11 +3,14 @@ from datetime import date
 from django.shortcuts import render
 from django.views.generic import ListView
 
+from pure_pagination.mixins import PaginationMixin
+
 from .filters import ProgramFilter
 from .models import Program
 
 
-class ProgramView(ListView):
+class ProgramView(PaginationMixin, ListView):
+    object = Program
     model = Program
     paginate_by = 30
     context_object_name = 'programs'
