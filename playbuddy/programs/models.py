@@ -22,6 +22,10 @@ class Program(models.Model):
         return self.channel.display_name
 
     @property
+    def iso_date(self):
+        return self.date.isoformat()
+
+    @property
     def now_showing(self):
         now = pendulum.now()
 

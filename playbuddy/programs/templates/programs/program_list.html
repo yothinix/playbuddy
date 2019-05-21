@@ -9,7 +9,11 @@
                 <input type="text" name='name' placeholder="Search..." value="{{ request.GET.name }}">
                 <button type='submit' class="ui primary button">Search</button>
             </div>
+            <br />
         </form>
+        <a href='?now_showing=true' class='ui button'>Now Showing</a>
+        <a href='?date=2019-05-21' class='ui button'>Today</a>
+        <a href='?date=2019-05-22' class='ui button'>Tomorrow</a>
         <table class="ui celled table">
             <thead>
                 <tr>
@@ -29,7 +33,7 @@
                                 <span class="ui mini red tag label">now showing</span></td>
                             {% endif %}
                         <td data-label="Channel"><a href='/?channel={{ program.channel_name }}'>{{ program.channel_name }}</a></td>
-                        <td data-label="Date">{{ program.date }}</td>
+                        <td data-label="Date"><a href='/?date={{ program.iso_date }}'>{{ program.date }}</a></td>
                         <td data-label="Start Time">{{ program.start_time }}</td>
                         <td data-label="End Time">{{ program.end_time }}</td>
                     </tr>
