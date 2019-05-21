@@ -12,8 +12,8 @@
             <br />
         </form>
         <a href='?now_showing=true' class='ui button'>Now Showing</a>
-        <a href='?date=2019-05-21' class='ui button'>Today</a>
-        <a href='?date=2019-05-22' class='ui button'>Tomorrow</a>
+        <a href='?date={% now "Y-m-d" %}' class='ui button'>Today</a>
+        <a href='?date={% now "Y-m-" %}{% now "d" as day %}{{ day|add:"1" }}' class='ui button'>Tomorrow</a>
         <table class="ui celled table">
             <thead>
                 <tr>
